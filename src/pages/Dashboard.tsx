@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import Wrapper from '../components/Wrapper'
+import React, { Component } from 'react';
+import Wrapper from '../components/Wrapper';
 
 class Dashboard extends Component{
   render(){
@@ -11,4 +11,4 @@ class Dashboard extends Component{
   }
 }
 
-export default Dashboard
+export default Dashboard;
