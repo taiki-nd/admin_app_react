@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import Wrapper from '../components/Wrapper'
+import React, { Component } from 'react';
+import Wrapper from '../components/Wrapper';
 
 class Users extends Component{
   render(){
@@ -28,8 +28,8 @@ class Users extends Component{
           </table>
         </div>
       </Wrapper>
-    )
+    );
   }
 }
 
-export default Users
+export default Users;

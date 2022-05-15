@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import Nav from './Nav'
-import { Menu } from './Menu'
+import React, { Component } from 'react';
+import Nav from './Nav';
+import { Menu } from './Menu';
 
 const Wrapper = (props: any) => {
     return(
@@ -16,8 +16,8 @@ const Wrapper = (props: any) => {
           </div>  
         </div>
       </div>
-    )
+    );
   }
 
 
-export default Wrapper
+export default Wrapper;
