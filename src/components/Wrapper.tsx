@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Nav from './Nav';
+import { Nav } from './Nav';
 import { Menu } from './Menu';
 
 const Wrapper = (props: any) => {
