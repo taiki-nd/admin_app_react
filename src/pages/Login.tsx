@@ -1,11 +1,13 @@
 import axios from 'axios';
 import { SyntheticEvent } from 'react';
 import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
 const Login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [state, setState] = useState(false);
 
   const submit = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -18,6 +20,12 @@ const Login = () => {
     });
 
     console.log(response.data)
+
+    setState(true)
+  }
+
+  if (state) {
+    return <Navigate to='/'/>
   }
 
   return(
