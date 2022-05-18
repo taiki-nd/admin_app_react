@@ -12,9 +12,13 @@ export const Nav = () => {
   );
   useEffect(() => {
     const getUser = async () => {
-      const {data} = await axios.get('http://localhost:8000/api/user', {withCredentials: true});
-      console.log(data)
-      setUser(data)
+      try {
+        const {data} = await axios.get('http://localhost:8000/api/user', {withCredentials: true});
+        console.log(data)
+        setUser(data)
+      } catch (e :any) {
+        console.log('error:', e.message)
+      }
     }
     getUser()
   }, [])

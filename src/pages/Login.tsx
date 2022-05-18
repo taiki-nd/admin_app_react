@@ -12,6 +12,7 @@ const Login = () => {
   const submit = async (e: SyntheticEvent) => {
     e.preventDefault();
 
+    try{
     const response = await axios.post('http://localhost:8000/api/login', {
       email: email,
       password: password,
@@ -22,6 +23,9 @@ const Login = () => {
     console.log(response.data)
 
     setState(true)
+    } catch (e :any) {
+      console.log('error:', e.message)
+    }
   }
 
   if (state) {
