@@ -13,7 +13,7 @@ export const Nav = () => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const {data} = await axios.get('http://localhost:8000/api/user', {withCredentials: true});
+        const {data} = await axios.get('/user');
         console.log(data)
         setUser(data)
       } catch (e :any) {
