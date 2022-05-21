@@ -10,6 +10,7 @@ export const Nav = () => {
       'last_name': "",
     },
   );
+
   useEffect(() => {
     const getUser = async () => {
       try {
@@ -19,9 +20,19 @@ export const Nav = () => {
       } catch (e :any) {
         console.log('error:', e.message)
       }
-    }
+    } 
     getUser()
-  }, [])
+  }, []);
+
+  const logout = async () => {
+    console.log('start logout')
+    try {
+      const response = await axios.post('/logout', {});
+      console.log(response.data)
+    } catch (e :any) {
+      console.log('error:', e.message)
+    }
+  }
 
   return(
     <nav className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
@@ -30,7 +41,9 @@ export const Nav = () => {
           <a className="nav-link text-white" href="/">{user?.first_name} {user?.last_name}</a>
         </div>
         <div className="nav-item text-nowrap">
-          <a className="nav-link text-white" href="/">Sign out</a>
+          <a className="nav-link text-white" href="/"
+            onClick={logout}
+          >Sign out</a>
         </div>
     </nav>
   );
