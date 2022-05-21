@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
 
     try{
-    const response = await axios.post('http://localhost:8000/api/login', {
+    const response = await axios.post('/login', {
       email: email,
       password: password,
     }, {
@@ -35,7 +35,7 @@ const Login = () => {
   return(
     <main className="form-signin">
         <form onSubmit={submit}>
-          <h1 className="h3 mb-3 fw-normal">Please register</h1>
+          <h1 className="h3 mb-3 fw-normal">Please Login</h1>
 
             <input type="email" className="form-control" placeholder="Email" required
               onChange={e => setEmail(e.target.value)}
