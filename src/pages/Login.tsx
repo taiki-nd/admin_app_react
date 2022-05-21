@@ -16,8 +16,6 @@ const Login = () => {
     const response = await axios.post('/login', {
       email: email,
       password: password,
-    }, {
-      withCredentials: true
     });
 
     console.log(response.data)
