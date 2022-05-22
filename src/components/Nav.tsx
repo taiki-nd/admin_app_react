@@ -2,15 +2,11 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { User } from "../models/user";
 
 export const Nav = () => {
 
-  const [user, setUser] = useState(
-    {
-      'first_name': "",
-      'last_name': "",
-    },
-  );
+  const [user, setUser] = useState(new User());
 
   useEffect(() => {
     const getUser = async () => {
