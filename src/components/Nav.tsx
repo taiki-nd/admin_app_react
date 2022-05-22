@@ -18,6 +18,7 @@ export const Nav = () => {
           data.first_name,
           data.last_name,
           data.email,
+          data.role,
         ));
       } catch (e :any) {
         console.log('error:', e.message)
