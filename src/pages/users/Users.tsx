@@ -3,21 +3,38 @@ import Wrapper from '../../components/Wrapper';
 import { useEffect } from "react";
 import { useState } from 'react';
 import { User } from '../../models/user';
+import { loadavg } from 'os';
 
 export const Users = () => {
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState([]);
+  const [page, setPage] = useState(1);
+  const [lastPage, setLastPage] = useState(0);
+
   useEffect(() => {
     const getAllUsers = async () => {
       try {
-        const {data} = await axios.get('/users');
-        console.log('users', data.data)
+        const {data} = await axios.get(`/users?page=${page}`);
+        console.log('users', data)
         setUsers(data.data)
+        setLastPage(data.meta.last_page)
       } catch (e :any) {
         console.log('error:', e.message);
       }
     }
     getAllUsers();
-  }, []);
+  }, [page]);
+
+  const next = () => {
+    if (page < lastPage) {
+      setPage(page + 1);
+    }
+  }
+
+  const prev = () => {
+    if (page > 1) {
+      setPage(page - 1);
+    }
+  }
 
   return(
     <Wrapper>
@@ -47,6 +64,12 @@ export const Users = () => {
           </tbody>
         </table>
       </div>
+      <nav aria-label="Page navigation example">
+        <ul className="pagination">
+          <li className="page-item"><a className="page-link" href="#" onClick={prev}>Previous</a></li>
+          <li className="page-item"><a className="page-link" href="#" onClick={next}>Next</a></li>
+        </ul>
+      </nav>
     </Wrapper>
   );
 }
