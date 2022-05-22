@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export const Nav = () => {
 
@@ -38,12 +39,12 @@ export const Nav = () => {
     <nav className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
       <a className="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/">Company name</a>
         <div className="nav-item text-nowrap">
-          <a className="nav-link text-white" href="/">{user?.first_name} {user?.last_name}</a>
+          <Link className="nav-link text-white" to="/profile">{user?.first_name} {user?.last_name}</Link>
         </div>
         <div className="nav-item text-nowrap">
-          <a className="nav-link text-white" href="/"
+          <Link className="nav-link text-white" to="/login"
             onClick={logout}
-          >Sign out</a>
+          >Sign out</Link>
         </div>
     </nav>
   );
