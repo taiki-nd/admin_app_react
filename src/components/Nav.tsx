@@ -13,7 +13,12 @@ export const Nav = () => {
       try {
         const {data} = await axios.get('/user');
         console.log(data)
-        setUser(data)
+        setUser(new User(
+          data.id,
+          data.first_name,
+          data.last_name,
+          data.email,
+        ));
       } catch (e :any) {
         console.log('error:', e.message)
       }
@@ -35,7 +40,7 @@ export const Nav = () => {
     <nav className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
       <a className="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/">Company name</a>
         <div className="nav-item text-nowrap">
-          <Link className="nav-link text-white" to="/profile">{user?.first_name} {user?.last_name}</Link>
+          <Link className="nav-link text-white" to="/profile">{user.name}</Link>
         </div>
         <div className="nav-item text-nowrap">
           <Link className="nav-link text-white" to="/login"
