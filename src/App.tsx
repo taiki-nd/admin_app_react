@@ -5,6 +5,7 @@ import { Users } from './pages/users/Users';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import UserCreate from './pages/users/UserCreate';
+import UserUpdate from './pages/users/UserUpdate';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path='/' element={<Dashboard />}/>
         <Route path='/users' element={<Users />}/>
         <Route path='/users/create' element={<UserCreate />}/>
+        <Route path='/users/update' element={<UserUpdate />}/>
         <Route path='/register' element={<Register />}/>
         <Route path='/login' element={<Login/>}/>
       </Routes>

@@ -69,7 +69,8 @@ export const Users = () => {
                   <td>{user.role.name}</td>
                   <td>
                     <div className='btn-group mr-2'>
-                      <a href="/" className='btn btn-sm btn-outline-danger' onClick={() => deleteUser(user.id)}>Delete</a>
+                      <a href="/" className='btn btn-sm btn-outline-danger m-1' onClick={() => deleteUser(user.id)}>Delete</a>
+                      <Link to="/users/update" className='btn btn-sm btn-outline-warning m-1'>Update</Link>
                     </div>
                   </td>
                 </tr>
