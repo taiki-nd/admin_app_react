@@ -50,7 +50,7 @@ const UserCreate = () => {
   }
 
   if (state) {
-    return <Navigate to='/'/>
+    return <Navigate to='/users'/>
   }
 
   return(
