@@ -3,7 +3,7 @@ import Wrapper from '../../components/Wrapper';
 import { useEffect } from "react";
 import { useState } from 'react';
 import { User } from '../../models/user';
-import { loadavg } from 'os';
+import { Link } from 'react-router-dom';
 
 export const Users = () => {
   const [users, setUsers] = useState([]);
@@ -45,6 +45,9 @@ export const Users = () => {
 
   return(
     <Wrapper>
+      <div className='p-3'>
+        <Link to='/users/create' className="btn btn-sm btn-outline-primary">Add</Link>
+      </div>
       <div className="table-responsive">
         <table className="table table-striped table-sm">
           <thead>
@@ -66,7 +69,7 @@ export const Users = () => {
                   <td>{user.role.name}</td>
                   <td>
                     <div className='btn-group mr-2'>
-                      <a href="#" className='btn btn-sm btn-outline-danger' onClick={() => deleteUser(user.id)}>Delete</a>
+                      <a href="/" className='btn btn-sm btn-outline-danger' onClick={() => deleteUser(user.id)}>Delete</a>
                     </div>
                   </td>
                 </tr>
@@ -77,8 +80,8 @@ export const Users = () => {
       </div>
       <nav aria-label="Page navigation example">
         <ul className="pagination">
-          <li className="page-item"><a className="page-link" href="#" onClick={prev}>Previous</a></li>
-          <li className="page-item"><a className="page-link" href="#" onClick={next}>Next</a></li>
+          <li className="page-item"><a className="page-link" href="/" onClick={prev}>Previous</a></li>
+          <li className="page-item"><a className="page-link" href="/" onClick={next}>Next</a></li>
         </ul>
       </nav>
     </Wrapper>
