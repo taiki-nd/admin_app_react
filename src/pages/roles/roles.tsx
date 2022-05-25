@@ -21,6 +21,13 @@ const Roles = () => {
     getRoles();
   },[]);
 
+  const deleteRole = async (id: number) => {
+    if (window.confirm(`Are you sure you want to delete this Role?: id = ${id}`)){
+      await axios.delete(`/roles/${id}`);
+      setRoles(roles.filter((r: Role) => r.id !== id));
+    }
+  }
+
   return(
     <Wrapper>
       <div className='p-3'>
@@ -43,7 +50,7 @@ const Roles = () => {
                   <td>{role.name}</td>
                   <td>
                   <div className='btn-group mr-2'>
-                      <a href="/" className='btn btn-sm btn-outline-danger m-1'>Delete</a>
+                      <a href="/roles" className='btn btn-sm btn-outline-danger m-1' onClick={() => deleteRole(role.id)}>Delete</a>
                       <Link to={`/users/edit/${role.id}`} className='btn btn-sm btn-outline-warning m-1'>Edit</Link>
                     </div>
                   </td>
