@@ -31,7 +31,7 @@ const Roles = () => {
   return(
     <Wrapper>
       <div className='p-3'>
-        <Link to='/users/create' className="btn btn-sm btn-outline-primary">Add</Link>
+        <Link to='/roles/create' className="btn btn-sm btn-outline-primary">Add</Link>
       </div>
       <div className="table-responsive">
         <table className="table table-striped table-sm">
