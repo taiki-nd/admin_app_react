@@ -6,8 +6,9 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import UserCreate from './pages/users/UserCreate';
 import UserUpdate from './pages/users/UserUpdate';
-import Roles from './pages/roles/roles';
+import Roles from './pages/roles/Roles';
 import RolesCreate from './pages/roles/RolesCreate';
+import RolesUpdate from './pages/roles/RolesUpdate';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='roles' element={<Roles/>}/>
         <Route path='/roles/create' element={<RolesCreate />}/>
+        <Route path='/roles/edit/:id' element={<RolesUpdate />}/>
       </Routes>
     </BrowserRouter>
   );
