@@ -38,7 +38,7 @@ export const Users = () => {
 
   const deleteUser = async (id: number) => {
     if (window.confirm(`Are you sure you  want to delete this User?: id = ${id}`)){
-      await axios.delete(`users/${id}`);
+      await axios.delete(`/users/${id}`);
       setUsers(users.filter((u: User) => u.id !== id));
     }
   }
@@ -69,7 +69,7 @@ export const Users = () => {
                   <td>{user.role.name}</td>
                   <td>
                     <div className='btn-group mr-2'>
-                      <a href="/" className='btn btn-sm btn-outline-danger m-1' onClick={() => deleteUser(user.id)}>Delete</a>
+                      <a href="/users" className='btn btn-sm btn-outline-danger m-1' onClick={() => deleteUser(user.id)}>Delete</a>
                       <Link to={`/users/edit/${user.id}`} className='btn btn-sm btn-outline-warning m-1'>Edit</Link>
                     </div>
                   </td>
