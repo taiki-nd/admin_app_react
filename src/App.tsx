@@ -9,6 +9,7 @@ import UserUpdate from './pages/users/UserUpdate';
 import Roles from './pages/roles/Roles';
 import RolesCreate from './pages/roles/RolesCreate';
 import RolesUpdate from './pages/roles/RolesUpdate';
+import Products from './pages/products/produts';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path='roles' element={<Roles/>}/>
         <Route path='/roles/create' element={<RolesCreate />}/>
         <Route path='/roles/edit/:id' element={<RolesUpdate />}/>
+        <Route path='products' element={<Products/>}/>
       </Routes>
     </BrowserRouter>
   );
