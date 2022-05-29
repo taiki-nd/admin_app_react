@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { SyntheticEvent } from "react"; 
 import Wrapper from "../components/Wrapper";
+import ImageUpload from "../components/ImageUpload";
 
 const ProductsCreate = () => {
 
@@ -50,9 +51,13 @@ const ProductsCreate = () => {
 
           <div className="mb-3">
             <label>Image</label>
-            <input type="text" className="form-control" placeholder="Image" required
-              onChange={e => setImage(e.target.value)}
-            />
+            <div className="input-group">
+              <input type="text" className="form-control" placeholder="Image" required
+                value={image}
+                onChange={e => setImage(e.target.value)}
+              />
+              <ImageUpload uploaded={setImage}/> 
+            </div>
           </div>
 
           <div className="mb-3">
