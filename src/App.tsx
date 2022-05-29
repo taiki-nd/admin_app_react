@@ -10,7 +10,7 @@ import Roles from './pages/roles/Roles';
 import RolesCreate from './pages/roles/RolesCreate';
 import RolesUpdate from './pages/roles/RolesUpdate';
 import Products from './pages/products/produts';
-import ProductsCreate from './pages/ProductsCreate';
+import ProductsCreate from './pages/products/ProductsCreate';
 
 function App() {
   return (

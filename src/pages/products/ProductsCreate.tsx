@@ -3,8 +3,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { SyntheticEvent } from "react"; 
-import Wrapper from "../components/Wrapper";
-import ImageUpload from "../components/ImageUpload";
+import Wrapper from "../../components/Wrapper";
+import ImageUpload from "../../components/ImageUpload";
 
 const ProductsCreate = () => {
 
