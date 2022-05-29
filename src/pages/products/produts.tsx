@@ -35,6 +35,9 @@ const Products = () => {
 
   return (
     <Wrapper>
+      <div className='p-3'>
+        <Link to='/products/create' className="btn btn-sm btn-outline-primary">Add</Link>
+      </div>
       <div className="table-responsive">
         <table className="table table-striped table-sm">
           <thead>
