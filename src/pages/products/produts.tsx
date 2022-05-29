@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Pagination from "../../components/ Pagination";
 import Wrapper from "../../components/Wrapper";
 import { Product } from "../../models/product";
 
@@ -29,18 +30,6 @@ const Products = () => {
     if (window.confirm(`Are you sure you  want to delete this Product?: id = ${id}`)){
       await axios.delete(`/users/${id}`);
       setProducts(products.filter((p: Product) => p.id !== id));
-    }
-  }
-
-  const next = () => {
-    if (page < lastPage) {
-      setPage(page + 1);
-    }
-  }
-
-  const prev = () => {
-    if (page > 1) {
-      setPage(page - 1);
     }
   }
 
@@ -79,12 +68,7 @@ const Products = () => {
           </tbody>
         </table>
       </div>
-      <nav aria-label="Page navigation example">
-        <ul className="pagination">
-          <li className="page-item"><a className="page-link" href="#" onClick={prev}>Previous</a></li>
-          <li className="page-item"><a className="page-link" href="#" onClick={next}>Next</a></li>
-        </ul>
-      </nav>
+      <Pagination page={page} lastPage={lastPage} pageChanged={setPage}/>
     </Wrapper>
   );
 }
