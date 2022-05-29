@@ -8,24 +8,39 @@ import { Product } from "../../models/product";
 const Products = () => {
 
   const [products, setProducts] = useState([]);
+  const [page, setPage] = useState(1)
+  const [lastPage, setLastPage] = useState(0);
 
   useEffect(() => {
     const getProducts = async () => {
       try {
-      const {data} = await axios.get('/products');
+      const {data} = await axios.get(`/products?page=${page}`);
       console.log('products:', data.data);
       setProducts(data.data);
+      setLastPage(data.meta.last_page)
       } catch (e: any) {
         console.log('error:', e.message)
       }
     }
     getProducts();
-  }, []);
+  }, [page]);
 
   const deleteProduct = async (id: number) => {
-    if (window.confirm(`Are you sure you  want to delete this User?: id = ${id}`)){
+    if (window.confirm(`Are you sure you  want to delete this Product?: id = ${id}`)){
       await axios.delete(`/users/${id}`);
       setProducts(products.filter((p: Product) => p.id !== id));
+    }
+  }
+
+  const next = () => {
+    if (page < lastPage) {
+      setPage(page + 1);
+    }
+  }
+
+  const prev = () => {
+    if (page > 1) {
+      setPage(page - 1);
     }
   }
 
@@ -64,6 +79,12 @@ const Products = () => {
           </tbody>
         </table>
       </div>
+      <nav aria-label="Page navigation example">
+        <ul className="pagination">
+          <li className="page-item"><a className="page-link" href="#" onClick={prev}>Previous</a></li>
+          <li className="page-item"><a className="page-link" href="#" onClick={next}>Next</a></li>
+        </ul>
+      </nav>
     </Wrapper>
   );
 }
