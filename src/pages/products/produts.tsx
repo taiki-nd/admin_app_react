@@ -61,8 +61,8 @@ const Products = () => {
                   <td>{p.price}</td>
                   <td>
                   <div className='btn-group mr-2'>
-                      <a href="/users" className='btn btn-sm btn-outline-danger m-1' onClick={() => deleteProduct(p.id)}>Delete</a>
-                      <Link to={`/users/edit/${p.id}`} className='btn btn-sm btn-outline-warning m-1'>Edit</Link>
+                      <a href="/products" className='btn btn-sm btn-outline-danger m-1' onClick={() => deleteProduct(p.id)}>Delete</a>
+                      <Link to={`/products/edit/${p.id}`} className='btn btn-sm btn-outline-warning m-1'>Edit</Link>
                     </div>
                   </td>
                 </tr>
