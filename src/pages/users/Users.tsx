@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useState } from 'react';
 import { User } from '../../models/user';
 import { Link } from 'react-router-dom';
+import Pagination from '../../components/ Pagination';
 
 export const Users = () => {
   const [users, setUsers] = useState([]);
@@ -23,18 +24,6 @@ export const Users = () => {
     }
     getAllUsers();
   }, [page]);
-
-  const next = () => {
-    if (page < lastPage) {
-      setPage(page + 1);
-    }
-  }
-
-  const prev = () => {
-    if (page > 1) {
-      setPage(page - 1);
-    }
-  }
 
   const deleteUser = async (id: number) => {
     if (window.confirm(`Are you sure you  want to delete this User?: id = ${id}`)){
@@ -79,12 +68,7 @@ export const Users = () => {
           </tbody>
         </table>
       </div>
-      <nav aria-label="Page navigation example">
-        <ul className="pagination">
-          <li className="page-item"><a className="page-link" href="#" onClick={prev}>Previous</a></li>
-          <li className="page-item"><a className="page-link" href="#" onClick={next}>Next</a></li>
-        </ul>
-      </nav>
+      <Pagination page={page} lastPage={lastPage} pageChanged={setPage}/>
     </Wrapper>
   );
 }
